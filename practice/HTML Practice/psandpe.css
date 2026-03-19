@@ -1,0 +1,20 @@
+button:hover{
+    background-color: blue;
+    color: moccasin;
+
+}
+
+button:active{
+    background-color: pink;
+    color: brown;
+
+}
+
+/* U can apply the pseudocalss to paragraph also
+for Ex: when u click on para, u want it's color to be changed 
+give proper class(like hover, active or checked
+------------: click and see output*/
+p:active{
+    color: blueviolet;
+}
+

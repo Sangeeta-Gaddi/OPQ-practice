@@ -1,0 +1,17 @@
+*{
+  color: blue;
+}
+
+#idsel{
+    color: red;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.clssel{
+    font-style: italic;
+}
+
+p{
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+}

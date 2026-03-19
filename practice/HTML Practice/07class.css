@@ -1,0 +1,41 @@
+h2::first-letter{
+    color: red;
+}
+
+p::first-line{
+    color: blueviolet;
+}
+
+
+/* selection pseudo elemet: will apply yellow color when u select the part of lie in a paragraph, it highligths with yellow */
+p::selection{
+    color: yellow;
+}
+
+/* spacificity(when selctors are different) and cascading(when selectors are same, here h1 and h1) */
+/*1. cascading(latest applied property has high priority)
+Blue will appears(as it applied recently for h1) */
+/* h1{
+    background-color: yellow;
+}
+
+h1{
+    background-color: blue;
+} */
+
+/* 2. spacificty(when selectors are differ, here h1(element selector) and heading(id) */
+/* order:---1. id, 
+2.class, attributes and pseudo-class
+3.elemet,pseudoelemet */
+
+/* now use both h1(element) and heading(id) */
+h1{
+    background-color: red;
+}
+
+/* h1 specifiicity: 0 0 1 (considered as 1) */
+
+#heading{
+    background-color: pink;
+}
+/* spcificity: 1 0 0 (this is considered as 100)-->just hover on the rule, u can see the specificity in VSD */

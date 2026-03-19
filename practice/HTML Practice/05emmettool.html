@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emmet Tool</title>
+</head>
+<body>
+    <h1>Nested Operators</h1>
+    <p>Are used to position abbrevation elements inside generated tree, 
+        wether it shuold be plced inside or near the context element.</p>
+
+        <!-- Child(>): use '>' operator to nest elemets inside each other 
+         
+        div>ul>li  press Enter-->
+
+        <div>
+            <ul>
+                <li></li>
+            </ul>
+        </div>
+
+
+        <!-- Sibling(+) :use + operator to place elements neaar each other, on same level
+         div+p+bq enter-->
+
+        <div></div>
+        <p></p>
+        <blockquote></blockquote>
+
+
+        <!-- Climb-up(^): both child ad sibling
+         div+div>span+em -->
+
+        <div></div>
+        <div>
+            <p><span></span><em></em></p>
+        </div>
+
+
+        <!-- Multiplication(*) : defined how many times should be outputted 
+         ul>li * 5-->
+
+         <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+         </ul>
+
+         <!-- Grouping use parantesis(): 
+           div>(header>ul>li=2>a)+footer>p -->
+
+        div>(header>ul>li+2>a)+footer>p
+
+        
+    
+</body>
+</html>

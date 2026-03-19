@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selectors</title>
+    <link rel="stylesheet" href="./selctorsstyle.css">
+</head>
+<body>
+    <h2>CSS Selectors</h2>
+    <ul>
+       <p>Universal Selector will apply CSS to every element and its content in the documnet.</p>
+        <li id="idsel">ID selctors</li>
+        <li class="clssel">Class Selectors</li>
+        
+        <p>Element selector, directly take element name and apply properties</p>
+    </ul>
+
+    <!-- CSS COMBinators and Advanced Targetting -->
+
+    <ul>
+        <li>Descedent selectors(use space) EX: div p{property :value;} --: here all the p under div will have the applied properties
+            <br>Ex:2 div a p{roperty:value} , property will be applied for app p, hich are under a, whic are under div
+        </li>
+    <li>Sibling Combinator(use +), they are next to each other EX: p+h3{pro:val}</li>  
+    <li>Child Combinator(use >) Ex:span>button{pro:val}</li>
+    <li>Attribute Selector <br>
+    Synta: element[type of attribute=attribute value]{pro:val}<br>
+    EX: input[type="text"]{
+        color:red
+    }</li>
+
+</ul>
+</body>
+</html>

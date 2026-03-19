@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PseudoelementsandSpecificity</title>
+    <link rel="stylesheet" href="./07class.css">
+</head>
+<body>
+    <h3>PseudoElements(use ::)</h3>
+    <p>These are used to address specific part/content of the pseudo 
+        element(selected element) to its specila state</p>
+
+    <h2>Decorate the first character</h2>
+
+    <p>First line<br>
+        Second line<br>
+        Third line<br>
+    </p>
+
+
+    <!-- Spacificity -->
+    <!-- Cascading: when multipe rules use idntical selectors, the declaration that appears last/recent wins/has high priority
+     earlier properties are overridden.  -->
+
+    <h2>Cascading(the property  which applied latest(recent)one will have high priority)</h2>
+    <p>The property which applied latest(recent)one will have high priority</p>
+
+    <!-- spacificity(selectors are differ, here, element selector(h1) and id selector(heading)) -->
+    <h1 id="heading">CAscading(rexent one high priority)</h1>
+    
+
+    <!-- Notesss: -->
+    <!-- I u get the same specificity for both selectors: then latest one will be applied(Cascading) -->
+     <!-- if u have two element selector the give 1 value each
+      ex: div p{
+      color: yellow;
+      }
+      now thw spacificity will be 0 0 2(1 for div element selector and 1 for p element selector) -->
+
+
+      <!-- INheritance: Some properties(not all) naturally flow from parent to child elemets throgh inheritance
+       1.inheritable properties:
+       --Typography(font-size,font-family,font-weight) 
+       --text(color, text-align,line-height)
+       --visibility(visibility,cursor)
+       
+       2.non-inheritable:
+       --Box model(margin,padding,border,width,height)
+       --positioning(position,top,left,z-index)
+       --background(background-color,bg-image)
+
+       3.forcing inheritance(i u want non-inhrtitable properties to apply,do force inheritance) !
+       --use "inherit" keyword to force inheritance
+       --use "initial" to reset to default value
+       --use "unset" to inherit if posiible, otherwise "initial"-->
+</body>
+</html>

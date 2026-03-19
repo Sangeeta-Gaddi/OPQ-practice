@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EntitiesTableForms</title>
+</head>
+<body>
+    <!-- Entities -->
+     <h2>HTML ENtities</h2>
+    <p>This is basic math a &lt; b, b&gt;c, </p>
+
+    <p>The sky is cloudy &#9729; &amp; it will rain today &#9748;</p>
+    <!-- Search code for cloud and aumbrella on google -->
+
+
+    <!-- Table-->
+     <table border="black">
+        <thead>
+        <caption>A table with merged cells</caption>
+        <tr>
+            <th rowspan="2"></th>
+            <th colspan="2">Average</th>
+            <th rowspan="2">Red Eyes</th>
+        </tr>
+        <tr>
+            <th>Height</th>
+            <th>Weight</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Males</td>
+                <td>24</td>
+                <td>30</td>
+                <td>40%</td>
+            </tr>
+            <tr>
+                <td>Sangu</td>
+                <td>23</td>
+                <td>40</td>
+                <td>60%</td>
+            </tr>
+        </tbody>
+     </table>
+     <br><br>
+
+
+     <!-- Formsssss -->
+
+     <h2>Forms</h2>
+     <p>Forms are used to take user input</p>
+
+     <!-- <action> attribute :tellus u location where the data/info should go -->
+        <!-- <label>:  tells the caption/labe//name in the form   -->
+            <!-- <input>:  user to tell which type of the info/data the form accepts and provide the box to get input -->
+      <form action="/server">
+        <label>Username:</label><br>  
+        <!-- if u give <br> then input box goes down -->
+        <input type="text"><br><br>
+
+        <label>Password</label><br>
+        <input type="password"><br><br>
+
+        <label>Email</label>
+        <input type="email">
+
+        <!-- can write this way also, uder label, add input (notr recomended)-->
+        <label>Contact
+        <input type="number">
+        </label><br><br>
+
+ 
+        <!-- class 03(1hr:18min video) -->
+        <!-- Now we need to link/connect this label to input 
+         use "for" in <label> and "id" in <input> attribute--------: both should be same 
+            and also it hightlights the input(box) when u click on that if u connects them-->
+
+         <label for="name">Username</label>
+         <input type="text" id="name"><br><br>
+
+         <!-- Button -->
+          <!-- Deafult button will be "submit", i.e default behaviour will be submission(whenever u add any button, it will submit the data,  so specify the type of the button to behave how u want) -->
+          <button>Click Me</button><br><br>
+ 
+          <!-- types of button: 1.submit(default)---: submit the data
+           2. button type---:just button 
+            3. Reset----:it will reset the input fileds/data/greyout the data-->
+
+            <button type="submit">Submit</button>
+            <button type="button">Click me</button>
+            <button type="reset">Reset Button</button>
+            <br><br>
+
+
+
+            <!-- "name" attribute:if u want the data/info u filled in the form to gon in the name:value pair then use name attribute   -->
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="userame">
+
+        <button>Sumbit to get the key:value pair </button>
+        <!-- Check this output in the linkkkk(u will see username=Sangeeta or whatever name u write in the Name input box)
+         But this not be shown to user/anyone so we can learn this later -->
+
+
+      </form>
+</body>
+</html>

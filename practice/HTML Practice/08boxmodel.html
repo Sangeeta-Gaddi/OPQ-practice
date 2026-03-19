@@ -1,0 +1,37 @@
+<!-- The CSS Box Model is the foundation of layout in web design. It describes how every element on a webpage is treated
+    as a rectangular box, made up of:
+    Content :-the actual text, image, or other data inside the element  
+    Padding :- space between the content and the border  
+    Border :- the outline around the padding and content  
+    Margin :- space outside the border, separating the element from others -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOX model</title>
+</head>
+    <style>
+    .box {
+        /* Content width */
+      width: 200px;    
+      /* Content height */          
+      height: 100px; 
+      /* Space inside the box */            
+      padding: 20px;   
+         /* Border around the box */
+      border: 5px solid blue;   
+      /* Space outside the box(space between adjacent elements) */
+      margin: 15px;              
+      background-color: lightyellow;
+    }
+  </style>
+<body>
+    <div class="box">
+    Hello, I am inside box
+  </div>
+</body>
+
+</html>

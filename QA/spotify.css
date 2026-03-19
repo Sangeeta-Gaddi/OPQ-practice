@@ -1,0 +1,277 @@
+/* overflow: by default it will be set to visible(overflow:visible), 
+i.e the main will have so much content, so even thoygh u give heigh and border, 
+the content can be overflowe and visible in the page out of border, so u can set it to "scroll" or "hidden"  or any other, 
+to avoid overflow*, so that u can scroll ur content within ur main div only */
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0px;
+    background-color: black;
+    color: white;
+    overflow: hidden;
+
+}
+
+.main {
+    border: 2px solid white;
+    /* proper black */
+    background-color: black;
+    /* vh--: visible area of the browser is occupied by main */
+    height: 100vh;
+    /* arrange them in horizontal */
+    display: flex;
+    padding: 0.5rem;
+}
+
+
+.main-content {
+    background-color: #121212;
+    /* i want main content, whatever the available space is there*/
+    flex-grow: 1;
+    overflow: auto;
+    border-radius: 1rem;
+    padding: 0 1.5rem;
+}
+
+.sidebar {
+    /* i want sidebar to be this much */
+    width: 330px;
+    background-color: black;
+    margin-right: 0.5rem;
+    border-radius: 1rem;
+}
+
+/* now style the home and serach options */
+.sidebar a {
+    text-decoration: none;
+    color: white;
+}
+
+.sidebar .nav {
+    background-color: #121212;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100px;
+    border-radius: 1rem;
+    /* 0.5 from left , check this */
+    padding: 0.5rem 0.75rem;
+
+}
+
+/* space between the options */
+.nav-option {
+    line-height: 2.5rem;
+    /* from bottom 0.5px, 0px */
+    padding: 0.5rem 0px;
+    opacity: 0.7;
+}
+
+/* i want to make the color light when it is selected */
+.nav-option:hover {
+    opacity: 1;
+}
+
+/* icon size to be increased */
+/* now space betwen icon and nav option(home and search) */
+.nav-option a {
+    margin-left: 1rem;
+    font-size: 1rem;
+}
+
+
+.library {
+    /* lighter than black */
+    background-color: #121212;
+    height: 100%;
+    border-radius: 1rem;
+    /* top and bottom 0.5rem and LR 0.75rem */
+    padding: 0.5rem 0.75rem;
+    /* spacebetween these controls and the home and search */
+    margin-top: 0.5rem;
+}
+
+.options {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+/* give space and increase size of libraryimage and your library */
+.lib-option img {
+    margin-right: 1rem;
+    height: 1.25rem;
+    width: 1.25rem;
+}
+
+/* give space between the icons */
+.options .icons i {
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    /* first make it light(transparency), then after hovering make it dark */
+    opacity: 0.7;
+}
+
+/* apply hover affect and opacity on icons */
+.options .icons i:hover {
+    opacity: 1;
+}
+
+.options img {
+    height: 1.25rem;
+}
+
+
+
+
+/* Box styling(2 boxes after icos and library, sidebar */
+.box {
+    background-color: #232323;
+    height: 8rem;
+    border-radius: 0.75rem;
+    /* T L B R */
+    /*  i have cahnge the value of second rem(from 0.75 to 0.50 according to my screen) */
+    margin: 0.75rem 0 1.75rem 0;
+    /* for all 4 sides same */
+    padding: 0.75rem;
+}
+
+/* style p and button */
+.box .box-p1 {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+/* p2 has some less weight than p1 */
+.box .box-p2 {
+    font-size: 0.8rem;
+    opacity: 0.9;
+}
+
+/* button(badge) */
+.badge {
+    background-color: white;
+    border: none;
+    border-radius: 1rem;
+    height: 2rem;
+    /* TB and LR */
+    padding: 0.25rem 1rem;
+    font-weight: 700;
+}
+
+/* now do the same for second box, even it has 2 para and one button --->automatically it applies, becoz u gave same class
+so no need to write again*/
+
+/* navbar in the main content(sticky navbar) */
+/* Sticky-nav */
+.sticky-nav {
+    background-color: #121212;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0.75rem;
+    position: sticky;
+    top: 0px;
+    z-index: 10;
+}
+
+.sticky-nav-icons {
+    font-size: 2rem;
+    margin-left: 0.75rem;
+}
+
+.sticky-nav-options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sticky-nav-options button {
+    margin-right: 1rem;
+}
+
+/* decorat the cards */
+.card {
+    background-color: #232323;
+    width: 150px;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-left: 1.5rem;
+    margin-top: 1rem;
+}
+
+.card-img {
+    width: 100%;
+}
+
+.card-info {
+    opacity: 0.8;
+    font-size: 0.7rem;
+}
+
+.card-container {
+    display: flex;
+}
+
+/* design controls of the music player */
+.music-player {
+    background-color: #232323;
+    /* i want to fix my music-player to be fixed, w,r,t bottom */
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    height: 72px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem;
+
+}
+
+
+.control-btns {
+    display: flex;
+    gap: 20px;
+}
+
+.btn {
+    width: 1rem;
+    height: 1rem;
+}
+
+.play-btn {
+    width: 1rem;
+    height: 1rem;
+}
+
+.track {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+
+.buttons {
+    margin: 8px;
+    display: flex;
+    gap: 20px;
+}
+
+
+
+.progress-bar input {
+    width: 200px;
+    height: 0.1rem;
+
+}
+
+.op-btns {
+    opacity: 0.5;
+}
+
+.op-btns:hover {
+    opacity: 1;
+}

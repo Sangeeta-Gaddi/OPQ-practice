@@ -1,0 +1,434 @@
+DATATYPES IN DATABASE:
+-->Data types define what kind of data a column can store.
+-->Each data type is a specific container: some hold numbers, some hold text, some store dates like a calendar pinned to the fridge.
+
+1.Numeric Data Types (Used to store numbers).
+1.INT →Used to store Whole numbers. 
+Example: 10, 25, 100
+
+
+2.Floating point datatypes.
+FLOAT / DOUBLE →( Decimal numbers)
+ Example: 10.5, 99.99
+
+
+3.Fixed point datatype: 
+DECIMAL → Exact decimal values we need (used in money).
+Example: 999.99
+Example: decimal(10,2)-->total 10 didgits, but after decimal point we will have 2 digits.
+
+
+4. String datatypes:Used to store text.
+1. CHAR(n) → Fixed length.(n--> is length)--->(in CHAR< n should be always fixed, if u specify currencycode CHAR(3), always data should have length of 3, EX:INR, USD etc
+Example: CHAR(5) → "HELLO"
+
+2.VARCHAR(n) → Variable length (most used)--->(here, n value is variable(not fixed))
+Example: "Sangeeta"
+
+3.TEXT → Large text
+Example: paragraph, description
+
+
+5.Binary Datatypes:
+1.BINARY(n) :Fixed-length binary data( same as CHAR in string datatype)
+-->Stores exactly n bytes
+If data is smaller → padded with zeros
+If larger → error
+Ex:BINARY(5)-->Store: 101 → becomes 10100 (padded)
+
+2.VARBINARY(n) :Variable-length binary data(same as VARCHAR)
+-->Stores up to n bytes
+No padding
+Saves only actual data
+Ex:VARBINARY(5)
+Store: 101 → stays 101
+
+3.BLOB (Binary Large Object):Used for large binary data
+-->Stores images, videos, files
+No fixed size like above
+Can store very large data.
+Example: profile_image BLOB
+
+
+6.Date & Time Data Types: Used to store date and time.
+1.DATE →stores date only(YYYY-MM-DD)
+
+2.TIME →stores time only (HH:MM:SS)
+
+3.DATETIME-> stores date and time( Date + Time)( YYYY-MM-DD  HH:MM:SS )
+Example: 2026-03-18 10:30:00
+
+4.TIMESTAMP →stores date and time with timezone support | z
+
+
+7.Boolean datatypes:Stores true/false values.
+BOOLEAN → TRUE(1)(one) / FALSE(0)(zero
+Example: IsActive = TRUE
+
+-------------------********************--------------------------------------
+1. INSERTING VALUES INTO TABLE:
+INSERT INTO table_name (column1, column2, column3)
+VALUES (value1, value2, value3);
+```
+### Explanation
+
+* `INSERT INTO` → Adds new data into a table
+* `(column1, column2)` → Specifies columns to insert data into
+* `VALUES` → Actual data to be inserted
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| details            |
+| information        |
+| information_schema |
+| movie              |
+| mysql              |
+| netflix            |
+| netflx             |
+| opq                |
+| opqfashions        |
+| opqtech            |
+| opqtechcompany     |
+| performance_schema |
+| qa                 |
+| sangeetadb1        |
+| social_db          |
+| sql_hr             |
+| sql_inventory      |
+| sql_invoicing      |
+| sql_store          |
+| students           |
+| sys                |
++--------------------+
+21 rows in set (1.20 sec)
+
+mysql> use social_db;
+Database changed
+mysql> show tables;
++---------------------+
+| Tables_in_social_db |
++---------------------+
+| people              |
++---------------------+
+1 row in set (0.40 sec)
+
+mysql> describe people;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| ID       | int         | YES  |     | NULL    |       |
+| NAME     | varchar(30) | YES  |     | NULL    |       |
+| AGE      | int         | YES  |     | NULL    |       |
+| LOCATION | varchar(30) | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+4 rows in set (0.19 sec)
+
+mysql> INSERT INTO PEOPLE VALUES(1,"Nishu",23,"India");
+Query OK, 1 row affected (0.62 sec)
+
+mysql> SELECT * FROM PEOPLE;
++------+-------+------+----------+
+| ID   | NAME  | AGE  | LOCATION |
++------+-------+------+----------+
+|    1 | Nishu |   23 | India    |
++------+-------+------+----------+
+1 row in set (0.03 sec)
+
+mysql> INSERT INTO PEOPLE VALUES(2,"Swara",22,"USA");
+Query OK, 1 row affected (0.21 sec)
+
+mysql> SELECT * FROM PEOPLE;
++------+-------+------+----------+
+| ID   | NAME  | AGE  | LOCATION |
++------+-------+------+----------+
+|    1 | Nishu |   23 | India    |
+|    2 | Swara |   22 | USA      |
++------+-------+------+----------+
+2 rows in set (0.00 sec)
+
+mysql> INSERT INTO PEOPLE VALUES(3,"Advik",20,"UK");
+Query OK, 1 row affected (0.07 sec)
+
+mysql> SELECT * FROM PEOPLE;
++------+-------+------+----------+
+| ID   | NAME  | AGE  | LOCATION |
++------+-------+------+----------+
+|    1 | Nishu |   23 | India    |
+|    2 | Swara |   22 | USA      |
+|    3 | Advik |   20 | UK       |
++------+-------+------+----------+
+3 rows in set (0.00 sec)
+
+mysql>
+
+-----------------------------------------------------------------------------------------------------------
+2.SELECTING DATA:
+### Syntax
+SELECT column1, column2
+FROM table_name;
+
+Explanation
+
+* `SELECT` → Retrieves data from a table
+* `column1, column2` → Specifies which columns to fetch
+* `FROM` → Specifies the table
+
+1.SELECT * FROM TABLE_NAME(Retrieve all columns data from table)
+ SELECT * FROM PEOPLE;
++------+-------+------+----------+
+| ID   | NAME  | AGE  | LOCATION |
++------+-------+------+----------+
+|    1 | Nishu |   23 | India    |
+|    2 | Swara |   22 | USA      |
+|    3 | Advik |   20 | UK       |
++------+-------+------+----------+
+3 rows in set (0.00 sec)
+
+2.SELECT FROM PARTICULAR COLUMN: SELECT COLUMN_NAME FROM TABLE_NAME;(Retrive from particular column)
+EX:mysql> SELECT NAME FROM PEOPLE;(data from name column only)
++-------+
+| NAME  |
++-------+
+| Nishu |
+| Swara |
+| Advik |
++-------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT AGE FROM PEOPLE;(data from age column)
++------+
+| AGE  |
++------+
+|   23 |
+|   22 |
+|   20 |
++------+
+3 rows in set (0.00 sec)
+
+
+2,.TO RETRIEVE DATA FFROM MULTIPLE COLUMNS:(use comma to separte the columns)(Retrieve from multiple columns)
+EX: SELECT NAME, AGE FROM PEOPLE;
++-------+------+
+| NAME  | AGE  |
++-------+------+
+| Nishu |   23 |
+| Swara |   22 |
+| Advik |   20 |
++-------+------+
+3 rows in set (0.00 sec)
+
+------------------------------------------------------------------------------------------------------------
+3.DISTINCT(retrieve unique data/values):
+Syntax:
+
+SELECT DISTINCT column_name
+FROM table_name;
+```
+
+### Explanation
+
+* `DISTINCT` → Removes duplicate values
+* Returns only unique values from the column
+EX:
+mysql> SELECT DISTINCT LOCATION FROM PEOPLE;
++----------+
+| LOCATION |
++----------+
+| India    |
+| USA      |
+| UK       |
++----------+
+3 rows in set (0.09 sec)
+
+------------------------------------------------------------------------------------
+--->U can insert the multiple values at once(by using the comma(,) between the data)
+mysql> INSERT INTO PEOPLE(NAME,ID,AGE,LOCATION) VALUES("Jhon",4,32,"Russia"),("Tommy",8,23,"USA");
+Query OK, 2 rows affected (0.17 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM PEOPLE;
++------+-------+------+----------+
+| ID   | NAME  | AGE  | LOCATION |
++------+-------+------+----------+
+|    1 | Nishu |   23 | India    |
+|    2 | Swara |   22 | USA      |
+|    3 | Advik |   20 | UK       |
+|    4 | Jhon  |   32 | Russia   |
+|    8 | Tommy |   23 | USA      |
++------+-------+------+----------+
+5 rows in set (0.00 sec)
+
+--------------->We can perform the operations on values on columns:
+mysql> SELECT AGE+10 FROM PEOPLE;
++--------+
+| AGE+10 |
++--------+
+|     33 |
+|     32 |
+|     30 |
+|     42 |
+|     33 |
++--------+
+5 rows in set (0.07 sec)
+
+------------------------------------------------------------------------------------------
+4. COLUMN ALIAS:(only in result table u can see the alias name of column, But in actual it will be as name itself(see second table, that is catual table which as column name as name, not as personname)
+mysql> SELECT NAME AS PERSONNAME FROM PEOPLE;
++------------+
+| PERSONNAME |
++------------+
+| Nishu      |
+| Swara      |
+| Advik      |
+| Jhon       |
+| Tommy      |
++------------+
+5 rows in set (0.00 sec)
+mysql> SELECT * FROM PEOPLE;
++------+-------+------+----------+
+| ID   | NAME  | AGE  | LOCATION |
++------+-------+------+----------+
+|    1 | Nishu |   23 | India    |
+|    2 | Swara |   22 | USA      |
+|    3 | Advik |   20 | UK       |
+|    4 | Jhon  |   32 | Russia   |
+|    8 | Tommy |   23 | USA      |
++------+-------+------+----------+
+5 rows in set (0.00 sec)
+
+---------------------------------------------------------(CORNER CASES FROM DISTINCT)
+1. to get the disctinct comination values from columns
+mysql> SELECT DISTINCT NAME,LOCATION FROM PEOPLE;
++-------+----------+
+| NAME  | LOCATION |
++-------+----------+
+| Nishu | India    |
+| Swara | USA      |
+| Advik | UK       |
+| Jhon  | Russia   |
+| Tommy | USA      |
++-------+----------+
+5 rows in set (0.00 sec)
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+5.WHERE:WHERE Clause(to get the particular ROW data(Filters rows based on condition)
+
+### Syntax
+SELECT column1, column2
+FROM table_name
+WHERE condition;
+
+### Explanation
+
+* `WHERE` → Filters rows based on a condition
+* `condition` → Can use operators like `=`, `>`, `<`, `AND`, `OR`
+
+mysql> SELECT * FROM PEOPLE WHERE NAME="Nishu";
++------+-------+------+----------+
+| ID   | NAME  | AGE  | LOCATION |
++------+-------+------+----------+
+|    1 | Nishu |   23 | India    |
++------+-------+------+----------+
+
+EX:2
+mysql> SELECT * FROM PEOPLE WHERE AGE<25;
++------+-------+------+----------+
+| ID   | NAME  | AGE  | LOCATION |
++------+-------+------+----------+
+|    1 | Nishu |   23 | India    |
+|    2 | Swara |   22 | USA      |
+|    3 | Advik |   20 | UK       |
+|    8 | Tommy |   23 | USA      |
++------+-------+------+----------+
+4 rows in set (0.00 sec)
+
+------------------CONSTRAINTS OF WHERE
+1.NOT NULL:(ensures cannot stores null values)
+Syntax
+CREATE TABLE table_name (
+    column_name datatype NOT NULL
+);
+```
+#### Explanation
+* `NOT NULL` → Ensures the column cannot have empty (NULL) values
+
+EX:
+mysql> CREATE TABLE CUSTOMER1(ID INT NOT NULL,LOCATION VARCHAR(30),NAME VARCHAR(20) NOT NULL);
+Query OK, 0 rows affected (2.45 sec)
+
+mysql> DESCRIBE CUSTOMER1;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| ID       | int         | NO   |     | NULL    |       |
+| LOCATION | varchar(30) | YES  |     | NULL    |       |
+| NAME     | varchar(20) | NO   |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+
+
+2.UNIQUE:(ensures values cannot be duplicated)
+Syntax
+CREATE TABLE table_name (
+    column_name datatype UNIQUE
+);
+
+#### Explanation
+* `UNIQUE` → Ensures all values in the column are different
+
+EX:mysql> CREATE TABLE CUSTOMER2(ID INT NOT NULL,EMAIL VARCHAR(30) unique ,NAME VARCHAR(20) NOT NULL);
+Query OK, 0 rows affected (1.29 sec)
+
+mysql> DESCRIBE CUSTOMER2;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| ID    | int         | NO   |     | NULL    |       |
+| EMAIL | varchar(30) | YES  | UNI | NULL    |       |
+| NAME  | varchar(20) | NO   |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+---------------------------------------->u can see or email column it is showing key "UNQ"(unique)
+
+-----------------------------------------------------------------------------------------------------------
+6. PRIMARY KEY:(to identify the particuar record uniquely) 
+Syntax
+CREATE TABLE table_name (
+    column_name datatype PRIMARY KEY
+);
+
+### Explanation
+
+* `PRIMARY KEY` → Uniquely identifies each row
+* Cannot have `NULL` values
+* Automatically enforces uniqueness
+
+EXmysql> CREATE TABLE STUDENTS(ID INT PRIMARY KEY, NAME VARCHAR(10));
+Query OK, 0 rows affected (0.94 sec):
+
+mysql> DESCRIBE STUDENTS;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| ID    | int         | NO   | PRI | NULL    |       |
+| NAME  | varchar(10) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+
+mysql> SELECT * FROM students;
++----+------+
+| ID | NAME |
++----+------+
+|  1 | Jae  |
++----+------+
+1 row in set (0.00 sec)
+
+----------------------PRIMARY SHOULD BE unique
+mysql> insert into students values(1,"Jom");
+ERROR 1062 (23000): Duplicate entry '1' for key 'students.PRIMARY'
+
+
+

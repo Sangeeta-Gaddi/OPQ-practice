@@ -1,0 +1,49 @@
+.container{
+    display: grid;
+
+    grid-template-rows: repeat(12, fr);
+    grid-template-columns: repeat(12,1fr);
+    gap: 10px;
+    height: 100vh;
+    padding: 10px;
+}
+
+/*Header*/
+.header{
+    grid-row: 1/2;   /*occupies the 1st row, upto 2 gridline(means only one row is occupied)*/
+    grid-column: 1/13;
+    background-color: pink;
+}
+
+.sidebar{
+    grid-row: 2/12;   /*starts from second row, goes upto 10 rows(means here upto 11 rows, becoz 1st row is occupied by header, u need to mention the gridline number, so upto 10th row, the grid line becomes 12th)*/
+    grid-column: 1/4;
+    /*this occupies 1st column upto 3 columns(so 4th grid line is mentioned)*/
+    background-color: lightblue;
+}
+
+.navigation{
+    grid-row: 2/3;
+    /*this also start from second row and goes upto 2nd row only(mention the grid line i.e, 3)*/
+    grid-column: 4/10;
+    /*sidebar occupies 3 columns, so navigation starts from th column and occupies, next 6 columns, i.e navigation starts from 4th coulmn and upto 9th column(i.e, 10th grid line)*/
+    background-color: aqua;
+}
+
+.main{
+    grid-row: 3/12;
+    grid-column: 4/10;
+    background-color: cadetblue;
+}
+
+.ads{
+    grid-row: 2/12;
+    grid-column: 10/13;
+    background-color: darkseagreen;
+}
+
+.footer{
+    grid-row: 12/13;
+    grid-column: 1/13;
+    background-color: aquamarine;
+}

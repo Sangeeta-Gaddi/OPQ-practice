@@ -1,0 +1,158 @@
+1. What is data
+Data is raw facts and figures
+• Examples: numbers, text, images, transactions
+• Data alone has little meaning
+• When processed, it becomes useful information
+
+2.What is Database:
+• A structured collection of related data
+• Designed for efficient storage, retrieval, and management
+• Databases store large amounts of data
+• Example: Student database, Banking database, E‑commerce database.
+
+3.Why we need 
+• Handle large amounts of data efficiently
+• Reduce redundancy (duplicate data)
+• Ensure data consistency
+• Enable multiple users to access data
+• Provide security and backup
+
+4.DBMS(bridge between user and Database)-->It is a software.
+• DBMS = Database Management System
+• Software used to create and manage databases
+• Acts as an interface between users and database
+• Examples: MySQL, PostgreSQL, Oracle, SQL Server
+
+5.What is SQL?(language used to interact with Database)
+• SQL = Structured Query Language
+• Used to communicate with relational databases
+• Used to create, read, update and delete data
+• Standard language for relational databases
+
+6.Common SQL Operations.
+• SELECT – retrieve data
+• INSERT – add new data
+• UPDATE – modify existing data
+• DELETE – remove data
+• CREATE – create database objects
+
+7.What is RDBMS?
+• RDBMS = Relational Database Management System
+• Data stored in tables (rows and columns)
+• Tables are related using keys
+• Uses SQL for querying data(querying means :managing or retreving data)
+• Examples: MySQL, PostgreSQL, Oracle
+
+Example:
+Users Table
+
+| UserID | Name |
+| ------ | ---- |
+| 1      | John |
+
+Orders Table
+
+| OrderID | UserID | Amount |
+| ------- | ------ | ------ |
+| 101     | 1      | 500    |
+
+
+
+8.What is NoSQL?(data will not be in table format, it will be in json(objects) data, key-value pair, or documents, graphs etc)
+• Non-relational databases
+• Designed for large-scale distributed data
+• Flexible schema
+• Handles unstructured or semi-structured data
+•Examples: MongoDB, Cassandra, Redis	
+{ 
+"name": "John", 
+"age": 25,
+"city": "Bangalore"
+}
+
+
+-------------********************-------------------
+1. mysql --version(to check db version)
+
+2. show databases(to see default db's)
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| details            |
+| information        |
+| information_schema |
+| movie              |
+| mysql              |
+| netflix            |
+| netflx             |
+| opq                |
+| opqfashions        |
+| opqtech            |
+| opqtechcompany     |
+| performance_schema |
+| qa                 |
+| sangeetadb1        |
+| sql_hr             |
+| sql_inventory      |
+| sql_invoicing      |
+| sql_store          |
+| students           |
+| sys                |
+
+
+Note:mysql> create database social_db(semicolon is missing so db not created)
+    -> \c(to come out of the arrow)
+
+3.create database "dbname";(semicolon is compulsion)
+EX: mysql> create database social_db;
+Query OK, 1 row affected (0.75 sec)
+
+--->u can check by running : show databases;(u can see ur newly created db(social_db)
+
+4.mysql> use social_db(to use ur db)
+Database changed
+
+5.mysql> select database();(to check/it will show which db u r using currently)
++------------+
+| database() |
++------------+
+| social_db  |
++------------+
+1 row in set (0.00 sec)
+
+6.mysql> CREATE TABLE PEOPLE(ID INT, NAME VARCHAR(30),AGE INT,LOCATION VARCHAR(30));
+Query OK, 0 rows affected (1.89 sec)
+---->To create the table in DB(mention attributes its datatype and length)
+
+7.mysql> SHOW COLUMNS FROM PEOPLE;------------>IT WILL show details of ur table created.
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| ID       | int         | YES  |     | NULL    |       |
+| NAME     | varchar(30) | YES  |     | NULL    |       |
+| AGE      | int         | YES  |     | NULL    |       |
+| LOCATION | varchar(30) | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+4 rows in set (0.19 sec)
+
+8.mysql> DESCRIBE PEOPLE;--->show details of the table u created.
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| ID       | int         | YES  |     | NULL    |       |
+| NAME     | varchar(30) | YES  |     | NULL    |       |
+| AGE      | int         | YES  |     | NULL    |       |
+| LOCATION | varchar(30) | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+9. DROP DATABASE "dbname";
+
+10.exit: to exit mysql server
+
+
+
+
+
+

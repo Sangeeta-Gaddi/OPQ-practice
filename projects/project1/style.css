@@ -1,0 +1,65 @@
+/*add googlefonts*/
+body{
+font-family: "Montserrat", sans-serif;
+}
+
+.hero-img{
+    background: url("./bgimg.webp") no-repeat;
+    height: 100vh;
+    /*ensures img will cover entire section*/
+    background-size: cover;
+    position: relative;
+}
+
+.hero-wrapper{
+    color: white;
+    position: absolute;
+    /*moves that whole content*/
+    top: 50%;
+    left: 50%;
+    /*from above properties it doesn't considers heigth and width it just adjusted top and left so tranlate*/
+    transform: translate(-50%,-50%);
+}
+
+.hero-wrapper h1{
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+/*make everthing center*/
+.form_code{
+    text-align: center;
+}
+
+.form_code .post_code{
+    display: block;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 2rem;
+    padding: 0.6rem;
+    border: none;
+    outline: none;
+}
+
+.form_code button{
+width: 40%;
+/*make btn center*/
+/* margin-left: auto;
+margin-right: auto; */
+text-align: center;
+background-color: blue;
+color: white;
+padding: .6rem;
+border: none;
+border-radius: .3rem;
+/*space between input of form and btm*/
+margin: 1rem auto 0rem;
+}
+
+.hero-wrapper span{
+    
+    margin-left: 5rem;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}

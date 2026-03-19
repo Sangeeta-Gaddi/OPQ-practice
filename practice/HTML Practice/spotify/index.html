@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify:-Music for Everyone</title>
+    <!-- link the icon in the title -->
+    <link rel="icon" href="./assets/logo.png">
+    <!-- link font awesome(search on google fontawesome libraries, and copy paste the whole 1st link) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- link the google fonts(we know we are using fot from family "Montserrat" getfont->get embeeded code(copy and paste the code)) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <!-- link your css file -->
+    <link rel="stylesheet" href="./spotify.css">
+</head>
+
+<body>
+    <!-- create the sections: u will have aside section, main page, music controls(buttons) downside(fixed) 
+     Here, under main--: we have sidebar,content,lastly musicplayer controls-->
+    <div class="main">
+
+        <!-- we will divide sidebar into two sections(navbar and library section) -->
+        <div class="sidebar">
+            <!-- under nav we have two options, one for home and one search -->
+            <div class="nav">
+                <!-- u want to keep the home option as defult selected, so keep it opacity here -->
+                <div class="nav-option" style="opacity: 1;">
+                    <i class="fa-solid fa-house"></i>
+                    <a href="">Home</a>
+                </div>
+                <div class="nav-option">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <a href="">Search</a>
+                </div>
+            </div>
+            <div class="library">
+                <!-- inside library i have two things, one div for all the music controls icon, other div for boxes -->
+                <div class="options">
+                    <!-- creat other two div's, one div for image of lobrary and the anchor of your library, 2nd div for plus and forward arrow -->
+                    <!-- didn't get the icon for library,so image is used -->
+
+                    <div class="lib-option">
+                        <img src="./assets/library_icon.png">
+                        <a href="">Your Library</a>
+                    </div>
+
+
+                    <!-- icons, forward arroes,plus -->
+                    <div class="icons">
+                        <i class="fa-solid fa-plus"></i>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+                <!-- now create two boxes after the icons and library u can see in tge output -->
+                <div class="boxes">
+                    <!-- both box has 2 para's and one button -->
+                    <!-- 1st box -->
+                    <div class="box">
+                        <p class="box-p1">
+                            Create Your first playlist
+                        </p>
+                        <p class="box-p2">It is easy, we will help you</p>
+                        <button class="badge">Create Playlist</button>
+                    </div>
+                    <!-- 2nd box -->
+                    <div class="box">
+                        <p class="box-p1">Let's find some Podcast to follow</p>
+                        <p class="box-p2">We will keep you updated on new episodes</p>
+                        <button class="badge">Browse Podcast</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- if u want to add junk content lorem*10/100 enter -->
+        <div class="main-content">
+            <div class="sticky-nav">
+                <div class="sticky-nav-icons">
+                    <img src="./assets/backward_icon.png" alt="">
+                    <img src="./assets/forward_icon.png" alt="">
+                </div>
+                <div class="sticky-nav-options">
+                    <button class="badge">Explore Premium</button>
+                    <!-- add the download icon from fontawesome -->
+                    <!-- give style for install button -->
+                    <button class="badge" style="background-color: black; color: white;"> <i
+                            class="fa-solid fa-download"></i> Install App</button>
+                    <!-- from font-icon website -->
+                    <i class="fa-regular fa-user"></i>
+                </div>
+            </div>
+            <!-- now under main we have card containers -->
+            <h2>Recently Played</h2>
+            <div class="card-container">
+                <div class="card">
+                    <img src="./assets/card1img.jpeg" class="card-img">
+                    <p class="card-title">Top 50-Global</p>
+                    <p class="card-info">Your daily updates of most played tracks</p>
+                </div>
+                <div class="card">
+                    <img src="./assets/card2img.jpeg" class="card-img">
+                    <p class="card-title">Top 50-Global</p>
+                    <p class="card-info">Your daily updates of most played tracks</p>
+                </div>
+            </div>
+
+            <br><br><br>
+
+        </div>
+        <div class="music-player">
+            <div class="control-btns">
+                <div class="left-btns">
+                    <img src="./assets/player_icon1.png" class="btn op-btns">
+                    <img src="./assets/player_icon2.png" class="btn">
+                </div>
+                <img src="assets/player_icon3.png" class="btn play-btn">
+                <div class="right-btns">
+                    <img src="./assets/player_icon4.png" class="btn">
+                    <img src="./assets/player_icon5.png" class="btn op-btns">
+                </div>
+            </div>
+            <div class="track">
+                <div class="start-time">00:00</div>
+                <div class="progress-bar">
+                    <input type="range" class="slider">
+                </div>
+                <div class="total-time">03:33</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

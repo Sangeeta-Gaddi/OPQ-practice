@@ -1,0 +1,58 @@
+.external{
+    color: blueviolet;
+    font-size: bold;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    background-color: aquamarine;
+}
+
+h4{
+    color: brown;
+    text-decoration: underline;
+    font-weight:bold;
+}
+
+/* Color properties */
+.name{
+    color: red;
+}
+
+.rgb{
+    color: rgb(255,0,0);
+}
+
+.hexa{
+    color: #FF0000;
+}
+
+
+/* text properties */
+.textalign{
+    text-align: center;
+}
+
+.txtdecor{
+    text-decoration: underline;
+}
+
+.linhtg{
+    line-height: 30px;
+}
+
+.ltrspc{
+    letter-spacing:20px;
+}
+
+/* Font properties */
+
+.fontsz{
+    font-size: 30px;
+}
+
+
+.fontwt{
+    font-weight: 900;
+}
+
+.fntfam{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

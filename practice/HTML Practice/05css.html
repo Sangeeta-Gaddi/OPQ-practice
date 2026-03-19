@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS</title>
+
+    <!-- Inline -->
+     <style>
+        h3{
+            color: pink;
+        }
+        .inline{
+            color: blue;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+     </style>
+
+
+<!-- External Stylng -->
+ <link rel="stylesheet" href="./style1.css">
+</head>
+<body>
+    <h1>CSS (Cascading STyle Sheets)</h1>
+    <p>CSS transforms plain HTML into beautiful, responsive expriences.
+        Used to describe the style of the document.
+    </p>
+
+    <!-- Basic sturctue:
+     selector{
+     property : value;
+     }  -->
+
+     <!-- Inline styling(css defined in same line wher htmk is defined)
+      Internal(inside head)
+      Extenal (separete file with .css extension)-->
+        <h2>Inline Styling</h2>
+        <p style="color: red; font-size: 20px;">This is Inline Styling, defined in the same line.</p>
+
+      <h3>Internal Styling:</h3>
+      <p class="inline"> see below thw head tag, under title , using ,(style tag)</p>
+
+
+      <h4>External STyling</h4>
+      <p class="external">External Styling is done by linking the extenal file using "link" tag</p>
+
+
+      <!-- Explore CSS Properties -->
+       <!-- Color Properties -->
+        
+       <h1>Color Properties</h1>
+       <p>Color can be gien three ways:
+        <ul>
+            <li class="name">Using name of  the color</li>
+            <li class="rgb">Using RGB values</li>
+            <li class="hexa">USing Hexa COde </li>
+        </ul>
+       </p>
+
+
+       <!-- Text Properties -->
+        <p>Text properties are essential for controlling appearnace and formatting text.</p>
+       
+        <ul>
+        <li class="textalign">text-align</li>
+       
+        <li class="txtdecor">text-decoration</li>
+        <li class="linhgt">line-height</li>
+        <li class="ltrspc">letter-spacing</li>
+        </ul>
+      
+
+        <!-- Font properties -->
+         <ul>
+            <li class="fntfam">fontfamily</li>
+             <li class="fontwt">font-weight</li>
+             <li class="fontsz">font-size</li>
+         </ul>
+
+
+
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Continuation</title>
+</head>
+
+<body>
+    <!-- placeholder attribute: It will be shown to the user -->
+    <form>
+        <label>Username:</label>
+        <input type="text" id="username" placeholder="Enter the username" name="username">
+        <button>Click Me</button>
+    </form><br>
+
+
+    <!-- in action give the particular location to get the particular info -->
+
+    <!-- see here just typ any info u want to search, for example u want to search about "apple", 
+      then type apple and hit seracg button, the it goes to google website  and give info about the apple
+      (becoz u gave the location as google website) -->
+
+    <form action="https://www.google.com/search">
+        Google
+        <input type="text" name="q">
+        <button>Search</button>
+    </form><br>
+
+    <!-- Same can be done for youtube also -->
+    <form action="https://www.youtube.com/results">
+        YouTube
+        <input type="text" placeholder="Enter what you want to search" name="search_query">
+        <button>Search</button>
+    </form><br>
+
+
+    <!-- CHECKBOX(multiple choices) -->
+    <!-- Some more fom controls 
+       Seee in the url after submitting and ticking the checkbox you will see "ON" in url, if it is not cehcked u see "OFF"-->
+    <form action="/server">
+        <input type="checkbox" name="age" id="age">
+        <label for="age">I am more than 18 years old</label>
+        <button>Submit</button>
+    </form><br>
+
+    <!-- Second Example(can select multiple choices) -->
+    <form action="/server">
+        <input type="checkbox" name="fruit" id="apple" value="apple">
+        <label for="apple">Apple</label>
+
+        <input type="checkbox" name="fruit" id="mango" value="mango">
+        <label for="mango">Mango</label>
+
+        <input type="checkbox" name="fruit" id="banana" value="banana">
+        <label for="banana">Banana</label>
+
+        <button>Submit</button>
+    </form><br>
+
+
+
+    <!-- RAdio Button(Single choce) 
+        alwaysss check the output and see the url
+        -->
+    <form action="/server">
+        <input type="radio" name="fruit" id="apple" value="apple">
+        <label for="apple">Apple</label>
+        <input type="radio" name="fruit" id="mango" value="mango">
+        <label for="mango">Mango</label>
+
+        <!-- see the "value" attribute -->
+        <input type="radio" name="fruit" id="banana" value="banana">
+        <label for="banana">Banana</label>
+        <button>Submit</button>
+    </form><br><br>
+
+    <!-- select(multiple options) -->
+     <form action="/server">
+        <label for="Profession">Select the Profession</label>
+        <select name="Profession" id="Profession">
+        <option value="student">Student</option>
+        <!-- if u want default one to be selected 
+         
+        or u can give any other option as for selected -->
+         <option value="dev" selected>Developer</option>
+          <option value="Tutr">Tutor</option>
+        </select>
+        <button>Submit</button>
+     </form><br><br>
+
+
+    <!-- Range -->
+     <form action="/server">
+        <label for="vol">Select the Range</label>
+        <input type="range"  min="0" max="100" name="volume" id="vol">
+
+        <!-- if u want to kkep the default value use "value attribute" 
+         see second on output it will be set at 60(just submit it u can see in the url default 60 value)-->
+        <input type="range"  min="0" max="100" name="volume" id="vol" value="60">
+
+        <!-- stepsize -->
+         <input type="range"  min="0" max="100" name="volume" id="vol" step="10">
+
+        <button>Submit</button>
+     </form><br><br>
+
+     <!-- Textarea(Feedback) -->
+      <label id="feed">Give Feedback</label>
+      <textarea id="feed" name="feed"></textarea>
+      <!-- mention how many rows and  -->
+</body>
+
+</html>
