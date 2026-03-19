@@ -1,0 +1,202 @@
+*. DEFAULT constraints:
+-->DEFAULT means a predefined value that the database automatically inserts into a column when the user does not provide any value.
+--->if u forget to give the value for any column it will be filled with NULL(by default), but if u want some default value to be filled if u miss to assign the value.
+
+EX:create table orders(ID int,status varchar(20) default "undelivered");
+Query OK, 0 rows affected (2.11 sec)
+
+mysql> describe orders;
++--------+-------------+------+-----+-------------+-------+
+| Field  | Type        | Null | Key | Default     | Extra |
++--------+-------------+------+-----+-------------+-------+
+| ID     | int         | YES  |     | NULL        |       |
+| status | varchar(20) | YES  |     | undelivered |       |
++--------+-------------+------+-----+-------------+-------+
+2 rows in set (0.12 sec)
+
+-->Now insert only id value, don't insert status value:
+insert into orders(id) values(1);
+Query OK, 1 row affected (0.34 sec)
+
+mysql> select * from orders;
++------+-------------+
+| ID   | status      |
++------+-------------+
+|    1 | undelivered |------------>u can see deault value foe status is assigned.
++------+-------------+
+1 row in set (0.00 sec)
+
+---->u can assign ur wished valued.
+mysql> insert into orders(id,status) values(1,"inProgress");
+Query OK, 1 row affected (0.17 sec)
+
+mysql> select * from orders;
++------+-------------+
+| ID   | status      |
++------+-------------+
+|    1 | undelivered |
+|    1 | inProgress  |
++------+-------------+
+2 rows in set (0.00 sec)
+
+---------->Even if u assign the NULL value to the column it takes it, DEFAULT value will work/get assigned only if u miss the value to assign.
+mysql> select * from orders;
++------+-------------+
+| ID   | status      |
++------+-------------+
+|    1 | undelivered |
+|    1 | inProgress  |
+|    1 | NULL        |
++------+-------------+
+3 rows in set (0.00 sec)
+
+-----------------------------------------------------------------------------------
+2.AUTOINCREMENT:(DB generates the values automatically)
+-->In a database, AUTO_INCREMENT is used to automatically generate a unique number for each new row in a table.
+--->AUTO_INCREMENT is a property that automatically increases the value of a column (usually a primary key) by 1 whenever a new record is inserted.
+
+----->   AUTO_INCREMENT Constraint
+
+##   Syntax
+CREATE TABLE table_name (
+    column_name INT AUTO_INCREMENT PRIMARY KEY
+);
+
+##    Explanation
+* `AUTO_INCREMENT` → Automatically increases value (1, 2, 3...)
+* Usually used with `PRIMARY KEY`
+* No need to manually insert values
+
+
+EX:create table bookings(id int primary key auto_increment,name varchar(10),guests int);
+Query OK, 0 rows affected (1.03 sec)
+
+mysql> describe bookings;
++--------+-------------+------+-----+---------+----------------+
+| Field  | Type        | Null | Key | Default | Extra          |
++--------+-------------+------+-----+---------+----------------+
+| id     | int         | NO   | PRI | NULL    | auto_increment |
+| name   | varchar(10) | YES  |     | NULL    |                |
+| guests | int         | YES  |     | NULL    |                |
++--------+-------------+------+-----+---------+----------------+
+3 rows in set (0.07 sec)
+
+mysql> insert into bookings(name,guests) values("Sangu",4);------------------>see u haven't specified the value for ID, it will assign the value forr idand goes on incements.
+Query OK, 1 row affected (0.41 sec)
+
+mysql> select * from bookings;
++----+-------+--------+
+| id | name  | guests |
++----+-------+--------+
+|  1 | Sangu |      4 |
++----+-------+--------+
+1 row in set (0.00 sec)
+
+mysql> insert into bookings(name,guests) values("Nishu",3);
+Query OK, 1 row affected (0.10 sec)
+
+mysql> select * from bookings;
++----+-------+--------+
+| id | name  | guests |
++----+-------+--------+
+|  1 | Sangu |      4 |
+|  2 | Nishu |      3 |
++----+-------+--------+
+2 rows in set (0.00 sec)
+
+mysql> insert into bookings(name,guests) values("Advik",8);
+Query OK, 1 row affected (0.10 sec)
+
+mysql> select * from bookings;
++----+-------+--------+
+| id | name  | guests |
++----+-------+--------+
+|  1 | Sangu |      4 |
+|  2 | Nishu |      3 |
+|  3 | Advik |      8 |
++----+-------+--------+
+3 rows in set (0.00 sec)
+
+----------------------------------------------------------------------------------------------------------------
+3.COMPARISION OPERATORS:
+-->Comparison Operators are used to compare two values.
+The result of a comparison is always TRUE or FALSE
+-->Comparison operators compare two values and return a Boolean result (true or false).
+
+| Operator    | Meaning                  | Example  | Result |
+| ----------- | ------------------------ | -------- | ------ |
+| `=` or `==` | Equal to                 | `5 == 5` | TRUE   |
+| `!=`        | Not equal to             | `5 != 3` | TRUE   |
+| `>`         | Greater than             | `10 > 5` | TRUE   |
+| `<`         | Less than                | `3 < 8`  | TRUE   |
+| `>=`        | Greater than or equal to | `5 >= 5` | TRUE   |
+| `<=`        | Less than or equal to    | `4 <= 6` | TRUE   |
+
+------------------------------------------------------------------------------------------------------------------------
+SELECT * FROM PEOPLE;
+
+-- Equal operator(compares the value memtioned and searches n the table for it and gives the result)
+-- for numeric(example)
+SELECT * FROM PEOPLE 
+WHERE AGE=22;
+
+-- example of sting for equal
+SELECT * FROM PEOPLE 
+WHERE LOCATION="UK";
+
+-- not equal
+SELECT * FROM PEOPLE 
+WHERE AGE!=23;
+
+-- CORNER CASES:
+-- 1.NULL  :-equals(doesn't work on NULL), even though u have NULL value in the table , it won't give the value in output
+-- 2.CASESENSITIVITY(assume db is casesensitive and write code) EX: "US"="us"
+-- 3.SPACES (spaces are considered in db compaarision) EX: "UK" not equal as " UK"(space is given)
+-- 4. equal is used as (=) not as (==)in JS we use this.
+
+SELECT * FROM PEOPLE
+WHERE AGE<30;
+
+SELECT * FROM PEOPLE
+WHERE AGE>30;
+
+-- STRING COMPARISION
+
+-- GIVE THE value of character/string IN quotes("")
+-- here, we get the names starting with characters which comes before "R"(from A to Q names)
+SELECT * FROM PEOPLE
+WHERE NAME<"R";
+
+--------------->-- sql compares CHARACTER BY CHARACTER, NOT word by word in string
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------
+-- LOGICAL OPERATORS
+-- AND(ALL CONDITIONS MUST BE TRUE THEN ONLY U GET OUTPUT)
+SELECT * FROM PEOPLE
+WHERE AGE>20 AND LOCATION="INDIA";
+
+SELECT * FROM PEOPLE
+WHERE AGE>20 
+AND LOCATION="INDIA"
+AND NAME="Nishu";
+
+-- OR(ANY ONE/ATLEAST ONE CONDTN MUST BE TRUE TO GET OUTPUT)
+SELECT * FROM PEOPLE
+WHERE AGE>25 AND LOCATION="CANADA";
+
+-- NOT (SAME ASNOT EQUAL TO !=)
+SELECT * FROM PEOPLE
+WHERE NOT AGE=20 ;
+
+-- XOR(ONLY ONE CODTN MUST BE TRUE)
+SELECT * FROM PEOPLE
+WHERE AGE<30 XOR LOCATION="USA";
+
+
+
+
+
+
+
